@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 @Service
 public class StackService {
@@ -23,27 +22,29 @@ public class StackService {
         memory = CalculatorMemory.init();
     }
 
-    public RpnStack getStackById(String stackId) {
-        return memory.getStacks().get(stackId);
+    public Map.Entry<String, RpnStack> getStackById(String stackId) {
+        var stack = memory.getStacks().get(stackId);
+        return Map.entry(stackId, stack);
     }
 
     public boolean pushValue(String stackId, double value) {
         var stack = memory.getStacks().get(stackId);
-        return stack.add(value);
+        return stack == null ? false : stack.add(value);
     }
 
-    public List<RpnStack> getAllStacks() {
-        return new ArrayList<>(memory.getStacks().values());
+    public Map<String, RpnStack> getAllStacks() {
+        return memory.getStacks();
     }
 
-    public boolean createStack(String stackId) {
+    public Map.Entry<String, RpnStack> createStack(String stackId) {
         var stack = new RpnStack(stackId);
         memory.getStacks().put(stackId, stack);
-        return true;
+        return Map.entry(stackId, stack);
     }
 
-    public RpnStack deleteStack(String stackId) {
-        return memory.getStacks().remove(stackId);
+    public Map.Entry<String, RpnStack> deleteStack(String stackId) {
+        var stack = memory.getStacks().remove(stackId);
+        return Map.entry(stackId, stack);
     }
 
     public double applyOperation(String stackId, OperatorSymbol symbol) {
