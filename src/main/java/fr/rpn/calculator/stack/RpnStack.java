@@ -6,9 +6,13 @@ import lombok.Getter;
 import java.util.Stack;
 
 @Getter
-public class RpnStack extends Stack<Double> {
+public class RpnStack {
 
-    public RpnStack() {
-        super();
+    private Stack<Double> values;
+    private String id;
+
+    public RpnStack(String id) {
+        this.id = id;
+        values = new Stack<>();
     }
 }

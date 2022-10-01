@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculationService {
 
-    public double calculate(RpnStack stack, AbstractOperator operator) {
-        if (stack != null && stack.size() > 1) {
+    public double calculate(RpnStack rpnStack, AbstractOperator operator) {
+        if (rpnStack.getValues() != null && rpnStack.getValues().size() > 1) {
+            var stack = rpnStack.getValues();
             var firstOperand = stack.pop().doubleValue();
             var secondOperand = stack.pop().doubleValue();
             var result = operator.apply(firstOperand, secondOperand);

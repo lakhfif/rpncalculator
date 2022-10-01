@@ -17,29 +17,26 @@ public class StackService {
         memory = CalculatorMemory.init();
     }
 
-    public Map.Entry<String, RpnStack> getStackById(String stackId) {
-        var stack = memory.getStacks().get(stackId);
-        return Map.entry(stackId, stack);
+    public RpnStack getStackById(String stackId) {
+        return memory.getStacks().get(stackId);
     }
 
     public boolean pushValue(String stackId, double value) {
         var stack = memory.getStacks().get(stackId);
-        return stack == null ? false : stack.add(value);
+        return stack == null ? false : stack.getValues().add(value);
     }
 
     public Map<String, RpnStack> getAllStacks() {
         return memory.getStacks();
     }
 
-    public Map.Entry<String, RpnStack> createStack(String stackId) {
-        var stack = new RpnStack();
-        memory.getStacks().put(stackId, stack);
-        return Map.entry(stackId, stack);
+    public RpnStack createStack(String stackId) {
+        var stack = new RpnStack(stackId);
+        return memory.getStacks().put(stackId, stack);
     }
 
-    public Map.Entry<String, RpnStack> deleteStack(String stackId) {
-        var stack = memory.getStacks().remove(stackId);
-        return Map.entry(stackId, stack);
+    public RpnStack deleteStack(String stackId) {
+        return memory.getStacks().remove(stackId);
     }
 
 

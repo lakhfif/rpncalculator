@@ -28,10 +28,10 @@ public class OperatorService {
     }
 
     public double applyOperation(String stackId, OperatorSymbol symbol) {
-        var stack = memory.getStacks().get(stackId);
+        var rpnStack = memory.getStacks().get(stackId);
         var operator = memory.getOperators().get(symbol);
-        if (stack != null && symbol != null) {
-            return calculationService.calculate(stack, operator);
+        if (rpnStack != null && symbol != null) {
+            return calculationService.calculate(rpnStack, operator);
         }
         return Double.NaN;
     }

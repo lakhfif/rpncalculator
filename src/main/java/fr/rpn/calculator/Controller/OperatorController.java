@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/rpn/op")
@@ -31,7 +30,7 @@ public class OperatorController {
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<AbstractOperator>> getAvailableStacks() {
+    public ResponseEntity<List<AbstractOperator>> getAvailableOperators() {
         var operators = operatorService.getAllOperators();
         if (operators.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -40,7 +39,7 @@ public class OperatorController {
     }
 
     @PostMapping("/{op}/stack/{stackId}")
-    public ResponseEntity<Map.Entry<String, RpnStack>> applyOperation(@PathVariable String op, @PathVariable String stackId) {
+    public ResponseEntity<RpnStack> applyOperation(@PathVariable String op, @PathVariable String stackId) {
         var result = operatorService.applyOperation(stackId, OperatorSymbol.valueOf(op.toUpperCase()));
         if (Double.isNaN(result)) {
             return ResponseEntity.unprocessableEntity().build();

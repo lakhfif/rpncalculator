@@ -21,9 +21,9 @@ public class StackController {
     }
 
     @PostMapping
-    public ResponseEntity<Map.Entry<String, RpnStack>> addNewStack(@RequestBody String stackId) {
+    public ResponseEntity<RpnStack> addNewStack(@RequestBody String stackId) {
         var stack = stackService.createStack(stackId);
-        if (stack.getValue() == null) {
+        if (stack == null) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(stack);
@@ -39,25 +39,25 @@ public class StackController {
     }
 
     @GetMapping("/{stackId}")
-    public ResponseEntity<Map.Entry<String, RpnStack>> getStack(@PathVariable String stackId) {
+    public ResponseEntity<RpnStack> getStack(@PathVariable String stackId) {
         var stack = stackService.getStackById(stackId);
-        if (stack.getValue() == null) {
+        if (stack == null) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(stack);
     }
 
     @DeleteMapping("/{stackId}")
-    public ResponseEntity<Map.Entry<String, RpnStack>> deleteStack(@PathVariable String stackId) {
+    public ResponseEntity<RpnStack> deleteStack(@PathVariable String stackId) {
         var stack = stackService.deleteStack(stackId);
-        if (stack.getValue() == null) {
+        if (stack == null) {
             return ResponseEntity.unprocessableEntity().build();
         }
         return ResponseEntity.ok(stack);
     }
 
     @PostMapping("/{stackId}")
-    public ResponseEntity<Map.Entry<String, RpnStack>> pushValue(@PathVariable String stackId, @RequestBody double value) {
+    public ResponseEntity<RpnStack> pushValue(@PathVariable String stackId, @RequestBody double value) {
         var isPushed = stackService.pushValue(stackId, value);
         if (isPushed) {
             var stack = stackService.getStackById(stackId);
