@@ -28,7 +28,7 @@ public class CalculatorMemory {
 
     public static CalculatorMemory init() {
         if (memory == null) {
-            return new CalculatorMemory();
+            memory = new CalculatorMemory();
         }
         return memory;
     }

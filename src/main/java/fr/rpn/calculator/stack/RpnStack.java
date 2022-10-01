@@ -8,10 +8,7 @@ import java.util.Stack;
 @Getter
 public class RpnStack extends Stack<Double> {
 
-    private String id;
-
-    public RpnStack(String id) {
+    public RpnStack() {
         super();
-        this.id = id;
     }
 }

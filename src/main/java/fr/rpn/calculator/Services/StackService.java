@@ -1,9 +1,7 @@
 package fr.rpn.calculator.Services;
 
 import fr.rpn.calculator.db.CalculatorMemory;
-import fr.rpn.calculator.operators.OperatorSymbol;
 import fr.rpn.calculator.stack.RpnStack;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -13,9 +11,6 @@ import java.util.Map;
 public class StackService {
 
     private CalculatorMemory memory;
-
-    @Autowired
-    private CalculationService calculationService;
 
     @PostConstruct
     public void initMemory() {
@@ -37,7 +32,7 @@ public class StackService {
     }
 
     public Map.Entry<String, RpnStack> createStack(String stackId) {
-        var stack = new RpnStack(stackId);
+        var stack = new RpnStack();
         memory.getStacks().put(stackId, stack);
         return Map.entry(stackId, stack);
     }
@@ -47,11 +42,5 @@ public class StackService {
         return Map.entry(stackId, stack);
     }
 
-    public double applyOperation(String stackId, OperatorSymbol symbol) {
-
-        var stack = memory.getStacks().get(stackId);
-        var operator = memory.getOperators().get(symbol);
-        return calculationService.calculate(stack, operator);
-    }
 
 }

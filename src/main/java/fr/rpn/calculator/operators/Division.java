@@ -9,6 +9,6 @@ public class Division extends AbstractOperator {
 
     @Override
     public double apply(double x, double y) {
-        return x / y;
+        return y == 0d ? Double.NaN : x / y;
     }
 }
