@@ -1,7 +1,7 @@
 package fr.rpn.calculator.Services;
 
-import fr.rpn.calculator.operators.AbstractOperator;
-import fr.rpn.calculator.stack.RpnStack;
+import fr.rpn.calculator.core.operators.AbstractOperator;
+import fr.rpn.calculator.core.stack.RpnStack;
 import org.springframework.stereotype.Service;
 
 @Service

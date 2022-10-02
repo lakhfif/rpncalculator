@@ -1,7 +1,7 @@
-package fr.rpn.calculator.Controller;
+package fr.rpn.calculator.web.Controller;
 
 import fr.rpn.calculator.Services.StackService;
-import fr.rpn.calculator.stack.RpnStack;
+import fr.rpn.calculator.core.stack.RpnStack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

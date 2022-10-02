@@ -1,4 +1,4 @@
-package fr.rpn.calculator.operators;
+package fr.rpn.calculator.core.operators;
 
 import lombok.Getter;
 

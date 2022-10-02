@@ -1,7 +1,7 @@
 package fr.rpn.calculator.Services;
 
-import fr.rpn.calculator.db.CalculatorMemory;
-import fr.rpn.calculator.stack.RpnStack;
+import fr.rpn.calculator.core.db.CalculatorMemory;
+import fr.rpn.calculator.core.stack.RpnStack;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

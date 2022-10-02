@@ -1,7 +1,7 @@
-package fr.rpn.calculator.db;
+package fr.rpn.calculator.core.db;
 
-import fr.rpn.calculator.operators.*;
-import fr.rpn.calculator.stack.RpnStack;
+import fr.rpn.calculator.core.operators.*;
+import fr.rpn.calculator.core.stack.RpnStack;
 import lombok.Getter;
 
 import java.util.HashMap;

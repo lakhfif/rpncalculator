@@ -1,4 +1,4 @@
-package fr.rpn.calculator;
+package fr.rpn.calculator.web;
 
 
 import org.springframework.context.annotation.Bean;

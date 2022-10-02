@@ -1,4 +1,4 @@
-package fr.rpn.calculator.stack;
+package fr.rpn.calculator.core.stack;
 
 
 import lombok.Getter;

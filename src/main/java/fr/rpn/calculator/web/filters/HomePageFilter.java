@@ -1,4 +1,4 @@
-package fr.rpn.calculator.filters;
+package fr.rpn.calculator.web.filters;
 
 import org.springframework.stereotype.Component;
 

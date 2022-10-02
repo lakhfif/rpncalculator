@@ -1,8 +1,8 @@
 package fr.rpn.calculator.Services;
 
-import fr.rpn.calculator.db.CalculatorMemory;
-import fr.rpn.calculator.operators.AbstractOperator;
-import fr.rpn.calculator.operators.OperatorSymbol;
+import fr.rpn.calculator.core.db.CalculatorMemory;
+import fr.rpn.calculator.core.operators.AbstractOperator;
+import fr.rpn.calculator.core.operators.OperatorSymbol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
